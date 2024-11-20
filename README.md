@@ -64,17 +64,10 @@ Release year distribution shows interesting patterns:
 
 ## Next Steps: Tableau Visualization
 With clean, structured data in place, I'm moving to Tableau to explore:
-- Genre popularity across regions
+- Genre popularity across regions and by release date
 - Rating patterns and trends
-- Content age distribution
+- Content release distribution
 - Regional content strategy insights
 
-The careful data preparation work means we can focus on finding insights rather than fighting with data formatting in Tableau.
-
-## Repository Structure
-- `README.md`: This overview
-- `sql-documentation.md`: Detailed SQL process
-- `queries/`: Key SQL queries
-- `tableaus/`: Visualization files (coming soon)
 
 
