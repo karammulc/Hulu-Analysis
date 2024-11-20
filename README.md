@@ -69,6 +69,7 @@ With clean, structured data in place, I'm moving to Tableau to explore:
 - Rating patterns and trends
 - Content release distribution
 - Regional content strategy insights
-🚧 coming soon 
+
+### 🚧 coming soon 
 
 
