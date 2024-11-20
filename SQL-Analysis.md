@@ -96,7 +96,7 @@ FROM `hulu.huluv3`;
 SELECT COUNT(*) AS total_rows FROM `hulu.huluv3`;
 ```
 
--- Result: 9,596 rows
+- Result: 9,596 rows
 
 
 ```sql
@@ -105,14 +105,14 @@ FROM `hulu.huluv3`
 WHERE US = TRUE;
 ```
 
--- Result: 2,855 rows
+- Result: 2,855 rows
 
 ```sql
 SELECT COUNT(*) AS jp_available 
 FROM `hulu.huluv3` 
 WHERE JP = TRUE;
 ```
--- Result: 6,996 rows
+- Result: 6,996 rows
 
 ```sql
 SELECT COUNT(*) AS both_available 
@@ -120,7 +120,7 @@ FROM `hulu.huluv3`
 WHERE JP AND US = TRUE;
 
 ```
-Result: 255 rows
+- Result: 255 rows
 
 ### Release Year Distribution
 | Release Year | Release Count |
