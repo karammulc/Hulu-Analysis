@@ -1,67 +1,80 @@
+# Hulu Content Analysis: Data Cleaning to Visualization
 
-# Hulu Dataset Analysis
+## Project Overview
+This project analyzes Hulu's content distribution across regions, focusing on genre patterns, ratings, and release year trends. Starting with messy, real-world streaming platform data, I transformed it into a clean, analysis-ready structure through careful data processing and SQL transformations.
 
-This repository documents the cleaning, transformation, and exploratory analysis of the **Hulu Dataset**. The analysis focuses on preparing the dataset for further exploration and visualization in Tableau, while maintaining data integrity and ensuring compatibility with SQL-based queries in BigQuery.
+## Tools Used
+- Google Sheets: Initial data cleaning
+- BigQuery: SQL transformations
+- Tableau: Visualization (in progress)
 
----
+## Data Source
+Original dataset sourced from [Kaggle's Hulu Dataset](https://www.kaggle.com/datasets/octopusteam/full-hulu-dataset)
 
-## **Project Overview**
+*Note: This analysis is based on a snapshot of Hulu's content and may not reflect current offerings.*
+  
+## Data Processing Challenges and Solutions
 
-The Hulu dataset contains information about movies and TV shows, including genres, IMDb ratings, release years, and availability in specific countries. The goal of this project is to clean and transform the dataset for advanced exploration and generate insights through SQL and Tableau visualizations.
+The initial data presented several interesting challenges. The genre field was particularly tricky, containing multiple values smooshed together with inconsistent separators. Regional availability was similarly complex, with values like "JP, US" that needed careful handling. Rather than rush into analysis, I took a systematic approach to cleaning these issues.
 
----
+For genres, I first standardized the separators in Google Sheets, then later created boolean flags in SQL. This turned messy strings like "Drama, Sci-Fi & Thriller" into clean true/false columns for each genre. Similarly, for regional availability, I created clear boolean columns for US and JP availability, making it much easier to analyze content distribution.
 
-## **Dataset Details**
+A careful approach to NULL values was crucial - while it made sense to replace missing titles with "Unknown Title", I deliberately preserved NULL values for ratings and vote counts to maintain statistical integrity. Each decision was made with the end goal of accurate analysis in mind.
 
-The dataset includes the following columns:
-- **title**: Title of the movie or TV show.
-- **type**: The type of content (`movie` or `tv`).
-- **genres**: Genre(s) of the content.
-- **releaseyear**: The release year of the content.
-- **imdbId**: IMDb ID for each title.
-- **imdbaveragerating**: IMDb rating (on a scale of 1–10).
-- **imdbnumbervotes**: Number of votes on IMDb.
-- **availablecountries**: Availability of content in specific countries (`US`, `JP`, or `JP US`).
+## Data Transformation Process
 
----
+### Initial Cleanup (Google Sheets):
+Starting with the raw dataset, I first:
+- Standardized all column names for consistency
+- Cleaned up country availability formatting
+- Removed duplicate entries (found 283)
+- Verified data integrity at each step
+- Fixed genre formatting issues
 
-## **Process**
+### SQL Transformations:
+The SQL work focused on creating two key tables:
 
-### 1. **Data Cleaning and Transformation**
-- Renamed columns for consistent capitalization.
-- Standardized the `availablecountries` field:
-  - Replaced `JP, US` with `JP US`.
-  - Verified using Google Sheets filters and manual checks.
-- Added new boolean columns (`US`, `JP`):
-  - Created logic to mark availability in the US or Japan.
-  - Used formulas:
-    ```excel
-    =IF(OR(A2="US", A2="JP US"), "Yes", "No")
-    =IF(OR(A2="JP", A2="JP US"), "Yes", "No")
-    ```
-- Removed commas and special characters (`&`) from `genres`:
-  - Used `SUBSTITUTE` and `TRIM` functions to clean the column.
-  - Removed 283 duplicate rows.
+#### huluv3: Basic Cleanup
+Created a foundation with standardized NULL handling:
+- Missing titles → "Unknown Title"
+- Missing types → "Unknown Type"
+- Missing genres → "Unknown"
+- Missing years → 0
+- Missing IMDb IDs → "Not Available"
+- Ratings/votes → preserved NULL
+- Missing availability → "Not Specified"
 
-### 2. **Transition to BigQuery**
-- Exported the cleaned dataset as a CSV and imported it into BigQuery.
-- Created a new table, `huluv3`, by handling `NULL` values:
-  | Column              | Replacement Value         |
-  |---------------------|---------------------------|
-  | `title`             | "Unknown Title"           |
-  | `type`              | "Unknown Type"            |
-  | `genre`             | "Unknown"                 |
-  | `releaseyear`       | 0                         |
-  | `imdbId`            | "Not Available"           |
-  | `imdbaveragerating` | (No Replacement)          |
-  | `imdbnumbervotes`   | (No Replacement)          |
-  | `availablecountries`| "Not Specified"           |
-  | `US`                | "No"                      |
-  | `JP`                | "No"                      |
+#### huluv4: Advanced Structure
+Built on huluv3 by adding boolean flags for:
+- Each possible genre
+- Regional availability
+- Content type classifications
 
-### 3. **Exploratory SQL Queries**
-- Counted total rows and filtered rows based on availability in the US, Japan, or both.
-- Identified top-rated titles using IMDb average ratings.
-- Analyzed the most active release years using group-by queries.
+## Key Findings
+Through this process, I discovered:
+- Total content: 9,596 titles
+- US availability: 2,855 titles
+- JP availability: 6,996 titles
+- Overlap: 255 titles available in both regions
 
----
+Release year distribution shows interesting patterns:
+- 2022 leads with 763 titles
+- Recent years (2019-2023) show strong content growth
+- Historical content preserved but less numerous
+
+## Next Steps: Tableau Visualization
+With clean, structured data in place, I'm moving to Tableau to explore:
+- Genre popularity across regions
+- Rating patterns and trends
+- Content age distribution
+- Regional content strategy insights
+
+The careful data preparation work means we can focus on finding insights rather than fighting with data formatting in Tableau.
+
+## Repository Structure
+- `README.md`: This overview
+- `sql-documentation.md`: Detailed SQL process
+- `queries/`: Key SQL queries
+- `tableaus/`: Visualization files (coming soon)
+
+
