@@ -12,6 +12,10 @@ Initial dataset was cleaned in Google Sheets before SQL work:
 - Removed 283 duplicate rows
 - Data exported as "Hulu V2" for BigQuery import
 
+## Documentation
+### Data Transformation Process
+🔍 [Detailed SQL Analysis](https://github.com/karammulc/Hulu-Analysis/blob/main/SQL-Analysis.md)
+
 ## NULL Value Handling Strategy
 Created a new table with standardized NULL handling:
 
