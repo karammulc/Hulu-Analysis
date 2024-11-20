@@ -1,4 +1,5 @@
-# Hulu Content Analysis: Data Cleaning to Visualization
+# Hulu Content Analysis
+<img src="https://github.com/karammulc/Hulu-Analysis/blob/main/Hulu-Logo.jpg" alt="Hulu Logo" width="400"/>
 
 ## Project Overview
 This project analyzes Hulu's content distribution across regions, focusing on genre patterns, ratings, and release year trends. Starting with messy, real-world streaming platform data, I transformed it into a clean, analysis ready structure through careful data processing and SQL transformations.
