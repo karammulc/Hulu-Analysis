@@ -143,6 +143,8 @@ Result: 255 rows
 
 ### Genre Analysis Structure
 Creating boolean flag columns for each genre transformed how we can analyze the content. Instead of dealing with complex string parsing, each title now has clear true/false values for every possible genre. 
-This makes it much simpler to analyze how genres interact with each other and with other variables in the dataset. For example, we can easily see what genres are most popular in different regions, or how certain genre combinations tend to be rated. 
+This makes it much simpler to analyze how genres interact with each other and with other variables in the dataset.
+
+For example, we can easily see what genres are most popular in different regions, or how certain genre combinations tend to be rated. 
 The structure is particularly valuable for Tableau visualization, as it allows for intuitive filtering and grouping of content.
 
