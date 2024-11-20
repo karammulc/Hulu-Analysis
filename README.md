@@ -63,12 +63,12 @@ Release year distribution shows interesting patterns:
 - Recent years (2019-2023) show strong content growth
 - Historical content preserved but less numerous
 
-# Next Steps: Tableau Visualization
+# Next Steps: Tableau Visualization 
 With clean, structured data in place, I'm moving to Tableau to explore:
 - Genre popularity across regions and by release date
 - Rating patterns and trends
 - Content release distribution
 - Regional content strategy insights
-
+🚧 coming soon 
 
 
