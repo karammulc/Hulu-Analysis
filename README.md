@@ -1,4 +1,4 @@
-# hulu analysis
+
 # Hulu Dataset Analysis
 
 This repository documents the cleaning, transformation, and exploratory analysis of the **Hulu Dataset**. The analysis focuses on preparing the dataset for further exploration and visualization in Tableau, while maintaining data integrity and ensuring compatibility with SQL-based queries in BigQuery.
