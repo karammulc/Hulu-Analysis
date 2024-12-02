@@ -13,7 +13,11 @@ This project analyzes Hulu's content distribution across regions, focusing on ge
 Original dataset sourced from [Kaggle's Hulu Dataset](https://www.kaggle.com/datasets/octopusteam/full-hulu-dataset)
 
 *Note: This analysis is based on a snapshot of Hulu's content and may not reflect current offerings.*
-  
+
+  <img src="https://github.com/karammulc/Hulu-X-IMDB-Exploratory-Analysis/blob/main/Hulu-Dashboard-Part1.png" width="1100"/>
+  <img src="https://github.com/karammulc/Hulu-X-IMDB-Exploratory-Analysis/blob/main/Hulu-Dashboard-Part2.png" width="1100"/>
+  <img src="https://github.com/karammulc/Hulu-X-IMDB-Exploratory-Analysis/blob/main/Hulu-Dashboard-Part3.png" width="1100"/>
+
 ## Data Processing Challenges and Solutions
 
 The initial data presented several interesting challenges. The genre field was particularly tricky, containing multiple values smooshed together with inconsistent separators. Regional availability was similarly complex, with values like "JP, US" that needed careful handling. Rather than rush into analysis, I took a systematic approach to cleaning these issues.
@@ -53,9 +57,9 @@ Built on huluv3 by adding boolean flags for:
 
 ## Key Findings
 Through this process, I discovered:
-- Total content: 9,596 titles
-- US availability: 2,855 titles
-- JP availability: 6,996 titles
+- Total content: 9,588 titles
+- US availability: 2,596 titles
+- JP availability: 6,737 titles
 - Overlap: 255 titles available in both regions
 
 Release year distribution shows interesting patterns:
@@ -63,13 +67,8 @@ Release year distribution shows interesting patterns:
 - Recent years (2019-2023) show strong content growth
 - Historical content preserved but less numerous
 
-# Next Steps: Tableau Visualization 
-With clean, structured data in place, I'm moving to Tableau to explore:
-- Genre popularity across regions and by release date
-- Rating patterns and trends
-- Content release distribution
-- Regional content strategy insights
+# Next Steps: Tableau Visualization documentation & Key Findings Presentation 
 
-### 🚧 coming soon 
+
 
 
